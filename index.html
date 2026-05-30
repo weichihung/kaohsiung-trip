@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#123c47">
-  <title>高雄獨旅｜2026.06.06-06.07 兩天一夜</title>
+  <meta name="theme-color" content="#153c46">
+  <title>高雄獨旅｜2026.06.06-06.07</title>
   <style>
     :root {
-      --ink: #18343b;
-      --muted: #587077;
-      --cream: #fffaf1;
-      --sand: #f4e5ce;
-      --sea: #0e6570;
-      --sea-dark: #123c47;
-      --sun: #e97b42;
-      --mint: #e5f2ef;
-      --white: #fff;
-      --border: rgba(18, 60, 71, .12);
-      --shadow: 0 10px 30px rgba(18, 60, 71, .08);
-      --radius: 20px;
+      --ink: #1d343a;
+      --muted: #60767c;
+      --bg: #fff8ed;
+      --card: #fffdf8;
+      --line: rgba(21, 60, 70, .13);
+      --sea: #0d6873;
+      --deep: #153c46;
+      --sun: #e6773d;
+      --tea: #eaf4ef;
+      --gold: #f5c879;
+      --shadow: 0 14px 34px rgba(21, 60, 70, .09);
+      --radius: 22px;
     }
 
     * { box-sizing: border-box; }
@@ -27,123 +27,118 @@
 
     body {
       margin: 0;
-      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--ink);
-      background: var(--cream);
-      line-height: 1.55;
+      background:
+        radial-gradient(circle at top right, rgba(245, 200, 121, .38), transparent 310px),
+        var(--bg);
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.6;
     }
 
     a { color: inherit; text-decoration: none; }
-
-    button {
-      border: 0;
-      font: inherit;
-      cursor: pointer;
-    }
+    button { border: 0; font: inherit; cursor: pointer; }
 
     .hero {
-      position: relative;
+      padding: max(28px, env(safe-area-inset-top)) 20px 34px;
+      color: white;
+      background: linear-gradient(135deg, #153c46 0%, #0d6873 62%, #23949a 100%);
       overflow: hidden;
-      color: var(--white);
-      padding: max(26px, env(safe-area-inset-top)) 20px 32px;
-      background: linear-gradient(135deg, #123c47 0%, #0e6570 58%, #178d94 100%);
+      position: relative;
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      right: -75px;
-      bottom: -105px;
-      width: 220px;
-      height: 220px;
+      right: -88px;
+      bottom: -112px;
+      width: 240px;
+      height: 240px;
       border-radius: 50%;
-      border: 36px solid rgba(255, 220, 155, .22);
+      border: 38px solid rgba(255,255,255,.14);
     }
 
     .eyebrow {
       margin: 0 0 10px;
+      color: var(--gold);
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .11em;
-      color: #f7d49b;
+      font-weight: 800;
+      letter-spacing: .12em;
     }
 
     h1 {
-      margin: 0 0 10px;
-      max-width: 340px;
-      font-size: clamp(30px, 9vw, 42px);
-      line-height: 1.2;
+      margin: 0 0 12px;
+      max-width: 390px;
+      font-size: clamp(31px, 8.8vw, 45px);
+      line-height: 1.15;
       letter-spacing: .02em;
     }
 
     .subtitle {
       margin: 0 0 22px;
-      max-width: 390px;
+      max-width: 430px;
       color: rgba(255,255,255,.88);
       font-size: 15px;
     }
 
-    .hero-actions {
-      position: relative;
-      z-index: 1;
+    .hero-actions, .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
     }
 
-    .button {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 45px;
-      padding: 10px 15px;
+      min-height: 42px;
+      padding: 9px 13px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 800;
       transition: transform .16s ease;
     }
 
-    .button:active { transform: scale(.97); }
-
-    .button.primary {
-      color: var(--sea-dark);
-      background: #fbd492;
-    }
-
-    .button.secondary {
-      color: var(--white);
-      background: rgba(255,255,255,.14);
-      border: 1px solid rgba(255,255,255,.3);
-    }
+    .btn:active { transform: scale(.97); }
+    .btn.primary { color: var(--deep); background: var(--gold); }
+    .btn.light { color: white; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); }
+    .btn.map { color: var(--sea); background: var(--tea); }
+    .btn.blog { color: #7a421d; background: #fff1d6; }
+    .btn.muted { color: var(--muted); background: #f3efe8; }
 
     main {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 18px 14px 88px;
+      padding: 18px 14px 92px;
     }
 
-    .quick-strip {
+    .quick {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin-top: -34px;
-      position: relative;
-      z-index: 2;
+      margin-top: -36px;
+    }
+
+    .quick-card, .section, .food-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
     }
 
     .quick-card {
       min-height: 88px;
       padding: 12px 10px;
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
+      border-radius: 17px;
     }
 
     .quick-card span {
       display: block;
       color: var(--muted);
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .quick-card strong {
@@ -154,75 +149,62 @@
     }
 
     .section {
-      margin-top: 20px;
+      margin-top: 18px;
       padding: 18px 15px;
-      background: var(--white);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
     }
 
-    .section-title {
+    .section-head {
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 10px;
-      margin: 0 0 14px;
+      margin-bottom: 14px;
     }
 
-    h2 {
-      margin: 0;
-      font-size: 21px;
-      line-height: 1.25;
-    }
+    h2 { margin: 0; font-size: 21px; line-height: 1.25; }
+    h3 { margin: 0; font-size: 16px; line-height: 1.35; }
+    .small, .note { margin: 0; color: var(--muted); font-size: 13px; }
 
-    .small, .note {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .route {
+    .route-note {
+      margin: 0 0 10px;
       padding: 13px;
-      border-radius: 14px;
-      color: var(--sea-dark);
-      background: var(--mint);
+      color: var(--deep);
+      background: var(--tea);
+      border-radius: 15px;
       font-size: 14px;
     }
 
-    .route strong { color: var(--sea); }
+    .route-note strong { color: var(--sea); }
 
     .tabs {
       display: flex;
       gap: 8px;
-      margin: 18px 0 14px;
+      margin: 16px 0 14px;
     }
 
     .tab {
       flex: 1;
       padding: 11px 8px;
       color: var(--muted);
-      background: #f3f3ee;
-      border-radius: 12px;
-      font-weight: 700;
+      background: #f2eee7;
+      border-radius: 13px;
+      font-weight: 800;
     }
 
-    .tab.active {
-      color: var(--white);
-      background: var(--sea);
-    }
-
-    .day-panel[hidden] { display: none; }
+    .tab.active { color: white; background: var(--sea); }
+    .day[hidden] { display: none; }
 
     .timeline {
       list-style: none;
       margin: 0;
       padding: 0 0 0 10px;
-      border-left: 2px solid #dce7e3;
+      border-left: 2px solid #d9e4df;
     }
 
     .stop {
       position: relative;
-      margin: 0 0 17px;
+      margin-bottom: 17px;
       padding-left: 15px;
     }
 
@@ -235,48 +217,43 @@
       top: 6px;
       width: 10px;
       height: 10px;
-      background: var(--sun);
-      border: 3px solid var(--white);
       border-radius: 50%;
-      box-shadow: 0 0 0 1px #e6d9c6;
+      background: var(--sun);
+      border: 3px solid var(--card);
+      box-shadow: 0 0 0 1px #eadac1;
     }
 
     .time {
       color: var(--sun);
       font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .05em;
-    }
-
-    .stop h3 {
-      margin: 2px 0 3px;
-      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: .04em;
     }
 
     .stop p {
-      margin: 0 0 7px;
+      margin: 4px 0 8px;
       color: var(--muted);
       font-size: 13px;
     }
 
-    .link {
+    .pill {
       display: inline-flex;
-      margin: 4px 5px 0 0;
-      padding: 6px 10px;
+      margin: 3px 5px 0 0;
+      padding: 4px 8px;
       border-radius: 99px;
       color: var(--sea);
-      background: var(--mint);
+      background: var(--tea);
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .meal-block {
-      margin: 17px 0 0;
-      padding-top: 15px;
-      border-top: 1px solid var(--border);
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
     }
 
-    .meal-block:first-of-type {
+    .meal-block:first-child {
       margin-top: 0;
       padding-top: 0;
       border-top: 0;
@@ -284,153 +261,49 @@
 
     .meal-title {
       display: flex;
-      justify-content: space-between;
       align-items: baseline;
+      justify-content: space-between;
       gap: 8px;
       margin-bottom: 9px;
     }
 
-    .meal-title h3 {
-      margin: 0;
-      font-size: 17px;
+    .meal-title span { color: var(--muted); font-size: 12px; }
+
+    .food-grid {
+      display: grid;
+      gap: 9px;
     }
 
-    .meal-title span {
-      color: var(--muted);
-      font-size: 12px;
+    .food-card {
+      padding: 12px;
+      border-radius: 16px;
     }
 
-    .food-choice {
-      display: block;
-      margin: 8px 0;
-      padding: 11px 10px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: #fffdfa;
-    }
-
-    .food-choice.selected {
-      border-color: rgba(14,101,112,.45);
-      background: var(--mint);
-    }
-
-    .food-head {
-      display: flex;
-      align-items: start;
-      gap: 8px;
-    }
-
-    .food-head input {
-      margin-top: 5px;
-      accent-color: var(--sea);
-    }
-
-    .food-name {
-      flex: 1;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .price {
-      color: var(--sun);
-      font-size: 14px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .food-meta {
-      margin: 5px 0 0 24px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .food-links { margin: 7px 0 0 24px; }
-
-    .budget-card {
-      color: var(--white);
-      background: var(--sea-dark);
-    }
-
-    .budget-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: end;
-      margin-bottom: 14px;
-    }
-
-    .budget-card h2 { color: var(--white); }
-
-    .remain {
-      text-align: right;
-    }
-
-    .remain span {
-      display: block;
-      color: rgba(255,255,255,.68);
-      font-size: 12px;
-    }
-
-    .remain strong {
-      color: #fbd492;
-      font-size: 27px;
-      line-height: 1.2;
-    }
-
-    .bar {
-      height: 10px;
-      overflow: hidden;
+    .food-card .tag {
+      display: inline-flex;
+      margin-bottom: 6px;
+      padding: 3px 8px;
       border-radius: 99px;
-      background: rgba(255,255,255,.15);
+      color: #7a421d;
+      background: #fff1d6;
+      font-size: 11px;
+      font-weight: 900;
     }
 
-    .bar-fill {
-      width: 0;
-      height: 100%;
-      background: #fbd492;
-      border-radius: inherit;
-      transition: width .25s ease, background .25s ease;
-    }
-
-    .budget-list {
-      margin: 15px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .budget-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,.13);
-      font-size: 14px;
-    }
-
-    .budget-list li:last-child { border-bottom: 0; }
-
-    .budget-input {
-      width: 88px;
-      padding: 5px 7px;
-      color: var(--white);
-      text-align: right;
-      border: 1px solid rgba(255,255,255,.25);
-      border-radius: 8px;
-      background: rgba(255,255,255,.1);
-    }
-
-    .budget-warning {
-      display: none;
-      margin: 12px 0 0;
-      padding: 9px;
-      color: #541d11;
-      background: #ffd2c3;
-      border-radius: 10px;
+    .food-card p {
+      margin: 5px 0 9px;
+      color: var(--muted);
       font-size: 13px;
-      font-weight: 700;
     }
 
-    .tips {
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .checklist {
       display: grid;
       gap: 9px;
       margin: 0;
@@ -438,56 +311,57 @@
       list-style: none;
     }
 
-    .tips li {
+    .checklist li {
       padding: 11px 12px;
-      border-radius: 12px;
-      background: #f8f3ea;
+      border-radius: 13px;
+      background: #f8f0e4;
       font-size: 13px;
     }
 
-    .refs {
+    .source-list {
       display: grid;
       gap: 8px;
-      margin-top: 13px;
+      margin-top: 12px;
     }
 
-    .ref {
+    .source-list a {
       display: flex;
       justify-content: space-between;
-      gap: 7px;
+      gap: 8px;
       padding: 10px 11px;
+      border: 1px solid #dbe8e4;
+      border-radius: 12px;
       color: var(--sea);
-      border: 1px solid #dbeae7;
-      border-radius: 11px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
+      background: white;
     }
 
     .bottom-nav {
       position: fixed;
       z-index: 10;
+      left: 10px;
       right: 10px;
       bottom: max(10px, env(safe-area-inset-bottom));
-      left: 10px;
       display: flex;
       justify-content: space-around;
-      max-width: 500px;
+      max-width: 520px;
       margin: auto;
       padding: 8px;
-      background: rgba(255,255,255,.96);
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       border-radius: 18px;
-      box-shadow: 0 10px 28px rgba(18,60,71,.17);
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 10px 28px rgba(21,60,70,.17);
       backdrop-filter: blur(8px);
     }
 
     .bottom-nav a {
       flex: 1;
-      padding: 6px 3px;
+      padding: 5px 3px;
       color: var(--muted);
       text-align: center;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .bottom-nav span {
@@ -504,42 +378,33 @@
       font-size: 12px;
     }
 
-    @media (min-width: 680px) {
-      main { padding: 24px 20px 95px; }
-      .hero { padding-left: max(calc((100% - 680px) / 2), 20px); }
-      .meals-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0 20px;
-      }
-      .meal-block:nth-child(2) {
-        margin-top: 0;
-        padding-top: 0;
-        border-top: 0;
-      }
+    @media (min-width: 720px) {
+      main { padding: 24px 20px 100px; }
+      .hero { padding-left: max(calc((100% - 720px) / 2), 20px); }
+      .food-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <p class="eyebrow">KAOHSIUNG SOLO TRIP</p>
-    <h1>高雄港都慢旅<br>兩天一夜</h1>
-    <p class="subtitle">2026.06.06（六）至 06.07（日）｜一個人也好走的捷運、輕軌、渡輪行程</p>
+    <h1>高雄安靜系獨旅<br>兩天一夜</h1>
+    <p class="subtitle">2026.06.06（六）15:00 開始｜06.07（日）16:00 抵高鐵左營，17:00 搭高鐵回台北</p>
     <div class="hero-actions">
-      <a class="button primary" href="#schedule">開始看行程</a>
-      <button class="button secondary" id="shareButton" type="button">分享此行程</button>
+      <a class="btn primary" href="#schedule">看新版行程</a>
+      <button class="btn light" id="shareButton" type="button">分享此行程</button>
     </div>
   </header>
 
   <main>
-    <div class="quick-strip">
-      <div class="quick-card">
-        <span>預算上限</span>
-        <strong>NT$ 3,000</strong>
-      </div>
+    <div class="quick">
       <div class="quick-card">
         <span>移動核心</span>
         <strong>捷運 + 輕軌</strong>
+      </div>
+      <div class="quick-card">
+        <span>住宿</span>
+        <strong>高雄萬豪酒店</strong>
       </div>
       <div class="quick-card">
         <span>旅行風格</span>
@@ -548,323 +413,365 @@
     </div>
 
     <section class="section" id="overview">
-      <div class="section-title">
+      <div class="section-head">
         <h2>動線概覽</h2>
-        <p class="small">不含住宿與車資</p>
+        <p class="small">已取消旗津與渡輪</p>
       </div>
-      <p class="route"><strong>Day 1 港灣藝文線：</strong>R10/O5 美麗島 → O2 鹽埕埔 → C12 駁二大義／大港橋 → R10 六合夜市</p>
-      <p class="route" style="margin-bottom:0"><strong>Day 2 海風旗津線：</strong>O1/C14 哈瑪星 → 鼓山渡輪 → 旗津老街／旗後燈塔 → O2 或 R10 晚餐返程</p>
+      <p class="route-note"><strong>6/6 下午後：</strong>R13 凹子底／萬豪入住 → C21A 內惟藝術中心與高美館周邊 → O2 鹽埕晚餐 → C12 駁二大義與大港橋夜景。</p>
+      <p class="route-note"><strong>6/7 16:00 收束：</strong>R13 凹子底 → O10 衛武營 → O13 大東文化藝術中心 → O2 鹽埕甜品 → R13 萬豪取行李 → R16 高鐵左營。</p>
+      <p class="note">所有「查閱」按鈕皆改放部落格或實際造訪紀錄；「導航」按鈕會直接開啟地圖搜尋。</p>
     </section>
 
     <section class="section" id="schedule">
-      <div class="section-title">
+      <div class="section-head">
         <h2>兩日行程</h2>
-        <p class="small">按鈕可直接導航</p>
+        <p class="small">手機可直接點按</p>
       </div>
+
       <div class="tabs" role="tablist" aria-label="選擇日期">
         <button class="tab active" id="tab-day1" data-day="day1" role="tab" aria-selected="true">6/6 星期六</button>
         <button class="tab" id="tab-day2" data-day="day2" role="tab" aria-selected="false">6/7 星期日</button>
       </div>
 
-      <div class="day-panel" id="day1" role="tabpanel" aria-labelledby="tab-day1">
+      <div class="day" id="day1" role="tabpanel" aria-labelledby="tab-day1">
         <ol class="timeline">
           <li class="stop">
-            <div class="time">08:30 - 09:30</div>
-            <h3>抵達後吃一份高雄早餐</h3>
-            <p>在美麗島或前金附近暖身，行李輕便後開始散步。</p>
-            <a class="link map" data-place="高雄美麗島站" href="#">美麗島站導航</a>
+            <div class="time">15:00 - 15:30</div>
+            <h3>高雄萬豪酒店入住、整理輕便包</h3>
+            <p>以 R13 凹子底為核心，先放行李、補水、防曬，下午後再出門。</p>
+            <span class="pill">住宿點</span><span class="pill">R13 凹子底</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="高雄萬豪酒店" href="#">導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://suni.tw/khhmarriott-5/">查閱萬豪早餐紀錄</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">09:40 - 11:20</div>
-            <h3>美麗島站光之穹頂、中央公園</h3>
-            <p>光之穹頂在站內即可欣賞；再搭一站或散步至中央公園，獨旅拍照自在。</p>
-            <a class="link map" data-place="美麗島站 光之穹頂" href="#">光之穹頂</a>
-            <a class="link map" data-place="中央公園 高雄" href="#">中央公園</a>
+            <div class="time">15:45 - 17:10</div>
+            <h3>內惟藝術中心、高美館綠廊慢走</h3>
+            <p>純白建築、綠廊、藝術中心與咖啡店都集中，適合一個人安靜拍照與休息。</p>
+            <span class="pill">C21A 內惟藝術中心</span><span class="pill">室內外皆可</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="內惟藝術中心" href="#">導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://lexie.tw/nwac/">查閱部落格</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">11:40 - 14:40</div>
-            <h3>鹽埕小吃午餐、老街散步</h3>
-            <p>捷運橘線至 O2 鹽埕埔；午餐後逛新樂街與堀江商場周邊。</p>
-            <a class="link map" data-place="捷運鹽埕埔站" href="#">O2 鹽埕埔</a>
+            <div class="time">17:10 - 18:10</div>
+            <h3>設計感咖啡／蛋糕下午茶</h3>
+            <p>優先選內惟或美術館周邊，避開移動疲勞；想更安靜可選 Space Café。</p>
+            <span class="pill">咖啡</span><span class="pill">蛋糕</span><span class="pill">可獨坐</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="GOR COFFEE 內惟店" href="#">GOR 導航</a>
+              <a class="btn map map-link" data-place="Space Café 高美店" href="#">Space 導航</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">15:00 - 18:00</div>
-            <h3>甜品休息、駁二與大港橋</h3>
-            <p>鹽埕吃冰後步行或搭輕軌至駁二；戶外園區與大港橋適合傍晚看港景。</p>
-            <a class="link map" data-place="駁二藝術特區" href="#">駁二</a>
-            <a class="link map" data-place="大港橋 高雄" href="#">大港橋</a>
+            <div class="time">18:35 - 20:00</div>
+            <h3>鹽埕晚餐：鴨肉珍優先，獨食餐廳備選</h3>
+            <p>搭輕軌或捷運往 O2 鹽埕埔，晚餐後可直接串駁二、大港橋。</p>
+            <span class="pill">O2 鹽埕埔</span><span class="pill">可獨食</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="鴨肉珍 大公路 高雄" href="#">鴨肉珍導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">查閱鴨肉珍紀錄</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">18:40 - 20:30</div>
-            <h3>六合夜市晚餐</h3>
-            <p>回到 R10/O5 美麗島，挑海產粥、水餃或小吃組合，晚間不必趕路。</p>
-            <a class="link map" data-place="六合觀光夜市" href="#">六合夜市</a>
+            <div class="time">20:05 - 21:20</div>
+            <h3>駁二大義、大港橋、港灣夜景</h3>
+            <p>取消旗津與渡輪後，把夜景留在港區步行路線；回程可搭輕軌接 R13。</p>
+            <span class="pill">C12 駁二大義</span><span class="pill">夜景</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="大港橋 高雄" href="#">導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://kenantravel.tw/great-harbor-bridge/">查閱部落格</a>
+            </div>
           </li>
         </ol>
       </div>
 
-      <div class="day-panel" id="day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
+      <div class="day" id="day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
         <ol class="timeline">
           <li class="stop">
-            <div class="time">08:00 - 09:10</div>
-            <h3>早餐後前往哈瑪星</h3>
-            <p>由橘線 O1 哈瑪星出站，先看舊港鐵道與街區風景。</p>
-            <a class="link map" data-place="捷運哈瑪星站" href="#">O1 哈瑪星</a>
+            <div class="time">08:00 - 09:00</div>
+            <h3>早餐：萬豪周邊或飯店內用</h3>
+            <p>早上不要排太滿，保留退房前整理時間；若想安靜，可選凹子底巷弄咖啡。</p>
+            <span class="pill">R13 凹子底</span><span class="pill">不趕路</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="dotz coffee roasters 多點咖啡 高雄" href="#">多點咖啡導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://mymarcy.tw/dotz-coffee-roasters/">查閱咖啡紀錄</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">09:30 - 12:10</div>
-            <h3>鼓山渡輪、旗後燈塔與砲台</h3>
-            <p>由哈瑪星步行至鼓山輪渡，抵旗津後步行登高看海港；炎熱時提早補水。</p>
-            <a class="link map" data-place="鼓山輪渡站" href="#">鼓山輪渡</a>
-            <a class="link map" data-place="高雄燈塔 旗津旗后燈塔" href="#">旗後燈塔</a>
+            <div class="time">09:20 - 10:50</div>
+            <h3>衛武營國家藝術文化中心</h3>
+            <p>橘線 O10 可達，建築本體、榕樹廣場與都會公園適合慢走；熱時可轉室內。</p>
+            <span class="pill">O10 衛武營</span><span class="pill">安靜藝文</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="衛武營國家藝術文化中心" href="#">導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://lexie.tw/national-kaohsiung-center-for-the-arts/">查閱部落格</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">12:20 - 15:10</div>
-            <h3>旗津在地午餐、老街與海岸</h3>
-            <p>獨旅點餐以羹湯、小份海鮮或小吃套餐為主，容易控制花費。</p>
-            <a class="link map" data-place="旗津老街" href="#">旗津老街</a>
-            <a class="link map" data-place="旗津海水浴場" href="#">旗津海岸</a>
+            <div class="time">11:05 - 12:00</div>
+            <h3>大東文化藝術中心</h3>
+            <p>O13 大東站旁，熱氣球感棚架與圖書館都好拍，行程簡短但很有特色。</p>
+            <span class="pill">O13 大東</span><span class="pill">捷運直達</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="大東文化藝術中心" href="#">導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://travelblog.tw/dadongcenter/">查閱部落格</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">15:20 - 17:20</div>
-            <h3>下午甜品、渡輪返回港區</h3>
-            <p>在旗津吃番茄切盤，或返回鹽埕再吃老店冰品；保留時間看港灣午後光線。</p>
-            <a class="link map" data-place="旗津輪渡站" href="#">返程渡輪</a>
+            <div class="time">12:10 - 13:15</div>
+            <h3>大東周邊午餐：以一人份套餐為主</h3>
+            <p>選個人餐盒、早午餐或咖啡簡餐，不排合菜，方便控制時間。</p>
+            <span class="pill">可獨食</span><span class="pill">午餐</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="Need Times 你的泰式 鳳山" href="#">Need Times 導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://dpm2bb.com/2026-20/">查閱餐廳紀錄</a>
+            </div>
           </li>
           <li class="stop">
-            <div class="time">17:40 - 19:10</div>
-            <h3>捷運沿線晚餐後結束旅程</h3>
-            <p>選鹽埕或美麗島附近用餐，接續高鐵、台鐵或客運都較從容。</p>
-            <a class="link map" data-place="高雄美麗島站" href="#">美麗島轉乘</a>
+            <div class="time">13:50 - 14:35</div>
+            <h3>鹽埕甜品：高雄婆婆冰保留</h3>
+            <p>從大東搭橘線回 O2 鹽埕埔，吃冰後立刻回飯店取行李，時間比較穩。</p>
+            <span class="pill">O2 鹽埕埔</span><span class="pill">甜品</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="高雄婆婆冰 旗艦店" href="#">婆婆冰導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">查閱婆婆冰紀錄</a>
+            </div>
+          </li>
+          <li class="stop">
+            <div class="time">14:40 - 16:00</div>
+            <h3>回萬豪取行李，16:00 抵高鐵左營</h3>
+            <p>建議 15:35 前離開 R13 凹子底，搭紅線到 R16 左營，預留 1 小時給 17:00 高鐵。</p>
+            <span class="pill">R16 左營</span><span class="pill">17:00 高鐵回台北</span>
+            <div class="actions">
+              <a class="btn map map-link" data-place="高鐵左營站" href="#">高鐵左營導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://angelala.tw/rainbow-food-court/">查閱左營站美食</a>
+            </div>
           </li>
         </ol>
       </div>
     </section>
 
     <section class="section" id="food">
-      <div class="section-title">
-        <h2>美食三選一</h2>
-        <p class="small">點選即估算餐費</p>
+      <div class="section-head">
+        <h2>美食推薦</h2>
+        <p class="small">每時段 3 選，不重複店家</p>
       </div>
-      <p class="note" style="margin-bottom:16px">價格為一人基本餐點的行前估算，現場菜單、休假與排隊狀況請於出發前再次確認。</p>
-      <div class="meals-grid">
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/6 早餐</h3><span>R10 / O4 周邊</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d1-breakfast" value="75" checked><span class="food-name">興隆居｜湯包 + 豆漿</span><span class="price">$75</span></span>
-            <span class="food-meta">前金站周邊｜高雄老派早餐代表</span>
-            <span class="food-links"><a class="link map" data-place="興隆居 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-breakfast" value="95"><span class="food-name">老江紅茶牛奶｜蛋吐司 + 紅茶牛奶</span><span class="price">$95</span></span>
-            <span class="food-meta">美麗島站步行可達｜高雄日嚐366入選</span>
-            <span class="food-links"><a class="link map" data-place="老江紅茶牛奶 南台總店" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-breakfast" value="90"><span class="food-name">果貿來來豆漿｜燒餅蛋 + 豆漿</span><span class="price">$90</span></span>
-            <span class="food-meta">捷運巨蛋站再步行｜眷村風味備選</span>
-            <span class="food-links"><a class="link map" data-place="果貿來來豆漿 高雄" href="#">地圖</a></span>
-          </label>
-        </div>
+      <p class="note">6/6 主行程從 15:00 開始；早餐、午餐列為「若早抵高雄」備用，不放入正式時間表。</p>
 
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/6 午餐</h3><span>O2 鹽埕埔</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d1-lunch" value="100" checked><span class="food-name">鴨肉珍｜鴨肉飯 + 湯</span><span class="price">$100</span></span>
-            <span class="food-meta">鹽埕老味道｜高雄旅遊網推薦店家</span>
-            <span class="food-links"><a class="link map" data-place="鴨肉珍 五福四路 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-lunch" value="130"><span class="food-name">港園牛肉麵｜牛肉拌麵或湯麵</span><span class="price">$130</span></span>
-            <span class="food-meta">大成街｜鹽埕招牌麵食</span>
-            <span class="food-links"><a class="link map" data-place="港園牛肉麵 鹽埕總店" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-lunch" value="100"><span class="food-name">米糕城｜米糕 + 四神湯</span><span class="price">$100</span></span>
-            <span class="food-meta">鹽埕老街區｜小份量適合獨旅</span>
-            <span class="food-links"><a class="link map" data-place="米糕城 高雄 鹽埕" href="#">地圖</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/6 下午茶</h3><span>鹽埕甜品</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d1-tea" value="90" checked><span class="food-name">高雄婆婆冰｜水果冰</span><span class="price">$90</span></span>
-            <span class="food-meta">七賢三路｜經典古早味冰品</span>
-            <span class="food-links"><a class="link map" data-place="高雄婆婆冰 旗艦店" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-tea" value="80"><span class="food-name">渡船頭海之冰｜水果冰</span><span class="price">$80</span></span>
-            <span class="food-meta">往哈瑪星方向｜港邊散步順路</span>
-            <span class="food-links"><a class="link map" data-place="渡船頭海之冰 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-tea" value="65"><span class="food-name">樺達奶茶｜普洱奶茶 + 珍珠</span><span class="price">$65</span></span>
-            <span class="food-meta">新樂街總店｜高雄日嚐366入選</span>
-            <span class="food-links"><a class="link map" data-place="樺達奶茶 鹽埕總店" href="#">地圖</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/6 晚餐</h3><span>R10 六合夜市</span></div>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-dinner" value="180"><span class="food-name">六合夜市｜土魠魚羹 + 烤物 + 飲品</span><span class="price">$180</span></span>
-            <span class="food-meta">一人可分項挑選，逛夜市彈性高</span>
-            <span class="food-links"><a class="link map" data-place="六合觀光夜市" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d1-dinner" value="160" checked><span class="food-name">莊記海產粥｜海產粥</span><span class="price">$160</span></span>
-            <span class="food-meta">六合夜市｜港都海味首選</span>
-            <span class="food-links"><a class="link map" data-place="莊記海產粥 六合夜市" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d1-dinner" value="140"><span class="food-name">方記水餃 + 鄭老牌木瓜牛奶</span><span class="price">$140</span></span>
-            <span class="food-meta">六合夜市｜小吃與水果飲品組合</span>
-            <span class="food-links"><a class="link map" data-place="方記水餃 六合夜市" href="#">水餃</a><a class="link map" data-place="鄭老牌木瓜牛奶 六合夜市" href="#">飲品</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/7 早餐</h3><span>前往 O1 前</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d2-breakfast" value="95" checked><span class="food-name">老江紅茶牛奶｜火腿蛋吐司組合</span><span class="price">$95</span></span>
-            <span class="food-meta">R10/O5 美麗島｜吃完直接轉橘線</span>
-            <span class="food-links"><a class="link map" data-place="老江紅茶牛奶 南台總店" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-breakfast" value="75"><span class="food-name">興隆居｜湯包 + 紅茶豆漿</span><span class="price">$75</span></span>
-            <span class="food-meta">O4 前金｜若第一天未選可補吃</span>
-            <span class="food-links"><a class="link map" data-place="興隆居 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-breakfast" value="110"><span class="food-name">大溝頂虱目魚米粉湯｜米粉湯</span><span class="price">$110</span></span>
-            <span class="food-meta">O2 鹽埕埔｜早晨熱湯再去哈瑪星</span>
-            <span class="food-links"><a class="link map" data-place="大溝頂虱目魚米粉湯 高雄" href="#">地圖</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/7 午餐</h3><span>旗津老街</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d2-lunch" value="100" checked><span class="food-name">不一樣赤肉羹｜赤肉羹 + 主食</span><span class="price">$100</span></span>
-            <span class="food-meta">旗津小吃｜獨旅好控制份量</span>
-            <span class="food-links"><a class="link map" data-place="不一樣赤肉羹 旗津" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-lunch" value="250"><span class="food-name">旗津海產街｜一人海鮮小套餐</span><span class="price">$250</span></span>
-            <span class="food-meta">點餐先問份量與時價，守住預算</span>
-            <span class="food-links"><a class="link map" data-place="旗津海產街" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-lunch" value="250"><span class="food-name">旗津萬三海產｜單人精簡點法</span><span class="price">$250</span></span>
-            <span class="food-meta">特色海味｜先確認是否可小份點餐</span>
-            <span class="food-links"><a class="link map" data-place="旗津萬三海產" href="#">地圖</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/7 下午茶</h3><span>旗津 / O2</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d2-tea" value="70" checked><span class="food-name">旗津老街｜古早味番茄切盤</span><span class="price">$70</span></span>
-            <span class="food-meta">南部沾醬吃法｜海邊清爽甜點</span>
-            <span class="food-links"><a class="link map" data-place="旗津老街 番茄切盤" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-tea" value="80"><span class="food-name">渡船頭海之冰｜綜合水果冰</span><span class="price">$80</span></span>
-            <span class="food-meta">返回鼓山後順吃｜近渡輪站</span>
-            <span class="food-links"><a class="link map" data-place="渡船頭海之冰 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-tea" value="90"><span class="food-name">高雄婆婆冰｜番茄盤或水果冰</span><span class="price">$90</span></span>
-            <span class="food-meta">O2 鹽埕埔｜回程經典老店選擇</span>
-            <span class="food-links"><a class="link map" data-place="高雄婆婆冰 旗艦店" href="#">地圖</a></span>
-          </label>
-        </div>
-
-        <div class="meal-block">
-          <div class="meal-title"><h3>6/7 晚餐</h3><span>O2 / R10 返程</span></div>
-          <label class="food-choice selected">
-            <span class="food-head"><input type="radio" name="d2-dinner" value="120" checked><span class="food-name">鹽埕鴨肉意麵｜乾麵 + 湯品</span><span class="price">$120</span></span>
-            <span class="food-meta">O2 周邊｜回捷運前吃飽</span>
-            <span class="food-links"><a class="link map" data-place="鹽埕鴨肉意麵 高雄" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-dinner" value="105"><span class="food-name">丹丹漢堡七賢店｜特色套餐</span><span class="price">$105</span></span>
-            <span class="food-meta">南部限定速食風味｜近鹽埕動線</span>
-            <span class="food-links"><a class="link map" data-place="丹丹漢堡 七賢店" href="#">地圖</a></span>
-          </label>
-          <label class="food-choice">
-            <span class="food-head"><input type="radio" name="d2-dinner" value="200"><span class="food-name">六合夜市｜米糕 + 鹽蒸海鮮 + 飲品</span><span class="price">$200</span></span>
-            <span class="food-meta">R10 美麗島｜離站前最後一逛</span>
-            <span class="food-links"><a class="link map" data-place="六合觀光夜市" href="#">地圖</a></span>
-          </label>
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/6 早餐備用</h3><span>早到才吃</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <span class="tag">保留店家</span>
+            <h3>老江紅茶牛奶｜蛋吐司 + 紅茶牛奶</h3>
+            <p>美麗島站附近，經典高雄早餐與宵夜老店。</p>
+            <div class="actions"><a class="btn map map-link" data-place="老江紅茶牛奶 南台總店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>興隆居｜湯包 + 豆漿</h3>
+            <p>前金一帶老派早餐，適合想吃熱食時備用。</p>
+            <div class="actions"><a class="btn map map-link" data-place="興隆居 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nellydyu.tw/blog/post/35456255">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>果貿來來豆漿｜燒餅蛋 + 豆漿</h3>
+            <p>眷村早餐風味，若想往巨蛋、左營方向移動可選。</p>
+            <div class="actions"><a class="btn map map-link" data-place="果貿來來豆漿 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://hoolee.tw/guomao-soymilk/">查閱</a></div>
+          </article>
         </div>
       </div>
-    </section>
 
-    <section class="section budget-card" id="budget">
-      <div class="budget-top">
-        <h2>NT$ 3,000<br>費用控管</h2>
-        <div class="remain">
-          <span>目前剩餘額度</span>
-          <strong id="remaining">$0</strong>
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/6 午餐備用</h3><span>早到才吃</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <h3>港園牛肉麵｜牛肉拌麵</h3>
+            <p>鹽埕老牌麵食，一人點麵很剛好。</p>
+            <div class="actions"><a class="btn map map-link" data-place="港園牛肉麵 鹽埕總店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/gang-yuan-beef-noodle/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>米糕城｜米糕 + 湯品</h3>
+            <p>鹽埕小吃選擇，份量容易掌握。</p>
+            <div class="actions"><a class="btn map map-link" data-place="米糕城 高雄 鹽埕" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/migaocheng">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>海裕屋｜海鮮定食</h3>
+            <p>凹子底一帶日式定食，適合先到萬豪附近用餐。</p>
+            <div class="actions"><a class="btn map map-link" data-place="海裕屋 凹子底 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://ajay.com.tw/%E9%AB%98%E9%9B%84-%E5%87%B9%E5%AD%90%E5%BA%95-%E6%B5%B7%E8%A3%95%E5%B1%8B/">查閱</a></div>
+          </article>
         </div>
       </div>
-      <div class="bar" aria-hidden="true"><div class="bar-fill" id="budgetBar"></div></div>
-      <ul class="budget-list">
-        <li><span>已選 8 餐估算</span><strong id="foodTotal">$0</strong></li>
-        <li><span>景點／展覽備用</span><input class="budget-input extra" type="number" min="0" step="10" value="200" aria-label="景點或展覽備用金額"></li>
-        <li><span>飲水、防曬與補給</span><input class="budget-input extra" type="number" min="0" step="10" value="200" aria-label="飲水防曬與補給金額"></li>
-        <li><span>伴手禮上限</span><input class="budget-input extra" type="number" min="0" step="10" value="500" aria-label="伴手禮上限"></li>
-        <li><span>臨時支出預留</span><input class="budget-input extra" type="number" min="0" step="10" value="600" aria-label="臨時支出預留"></li>
-        <li><strong>計畫支出合計</strong><strong id="grandTotal">$0</strong></li>
-      </ul>
-      <p class="budget-warning" id="budgetWarning">目前超過 NT$3,000，請調低餐點或彈性預留額。</p>
-      <p class="note" style="color:rgba(255,255,255,.72);margin-top:12px">捷運、輕軌、渡輪與住宿依需求另計，不納入本表；如要把市內交通也納管，可將臨時支出預留分配一部分使用。</p>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/6 下午茶</h3><span>安靜、蛋糕、咖啡</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <h3>GOR' COFFEE 內惟店｜法式甜點 + 咖啡</h3>
+            <p>內惟藝術中心裡，動線最順、環境有設計感。</p>
+            <div class="actions"><a class="btn map map-link" data-place="GOR COFFEE 內惟店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/gor-nei-wei/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>Akau Coffee 猻物咖啡｜咖啡 + 輕食</h3>
+            <p>內惟藝術中心內，逛展後可直接坐下。</p>
+            <div class="actions"><a class="btn map map-link" data-place="Akau Coffee 猻物咖啡 內惟藝術中心" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/neiwei-akau">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>Space Café 高美店｜北歐家具咖啡廳</h3>
+            <p>高美館附近，空間安靜、有特色，適合獨處。</p>
+            <div class="actions"><a class="btn map map-link" data-place="Space Café 高美店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://jocelynspace.com/%E9%AB%98%E9%9B%84%E5%92%96%E5%95%A1%E5%BB%B3space-cafe-scandinavian-style/">查閱</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/6 晚餐</h3><span>鹽埕與獨食優先</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <span class="tag">保留店家</span>
+            <h3>鴨肉珍｜鴨肉飯 + 下水湯</h3>
+            <p>鹽埕代表性小吃，晚餐後可接駁二夜景。</p>
+            <div class="actions"><a class="btn map map-link" data-place="鴨肉珍 大公路 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>獨食燒肉｜一人燒肉套餐</h3>
+            <p>名稱就很符合獨旅，鹽埕區一人用餐不尷尬。</p>
+            <div class="actions"><a class="btn map map-link" data-place="獨食燒肉 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.girlslifeplan.com/oneeat/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>NOBUT CAFE｜咖哩飯／義大利麵</h3>
+            <p>美麗島站附近，部落格紀錄提到適合一個人慢慢吃。</p>
+            <div class="actions"><a class="btn map map-link" data-place="NOBUT CAFE 高雄 美麗島" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://yama.tw/nobut-cafe/">查閱</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/7 早餐</h3><span>萬豪／凹子底周邊</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <h3>高雄萬豪 M9｜飯店早餐</h3>
+            <p>住客最省時間，適合 6/7 早上保留體力。</p>
+            <div class="actions"><a class="btn map map-link" data-place="高雄萬豪酒店 M9" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://suni.tw/khhmarriott-5/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>dotz coffee roasters｜早午餐 + 精品咖啡</h3>
+            <p>凹子底巷內，環境舒適，適合獨自用餐。</p>
+            <div class="actions"><a class="btn map map-link" data-place="dotz coffee roasters 多點咖啡 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mymarcy.tw/dotz-coffee-roasters/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>大溝頂虱目魚米粉湯｜熱湯早餐</h3>
+            <p>若想往鹽埕出發，可吃一碗在地熱湯。</p>
+            <div class="actions"><a class="btn map map-link" data-place="大溝頂虱目魚米粉湯 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/milkfish-noodle">查閱</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/7 午餐</h3><span>大東／鳳山周邊</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <h3>Need Times 你的泰式｜個人泰式餐盒</h3>
+            <p>大東藝術中心旁，個人套餐很好安排。</p>
+            <div class="actions"><a class="btn map map-link" data-place="Need Times 你的泰式 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://dpm2bb.com/2026-20/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>加減晨廚｜早午餐盤</h3>
+            <p>近大東文化藝術中心，想吃輕食可選。</p>
+            <div class="actions"><a class="btn map map-link" data-place="加減晨廚 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://miemie.tw/52cooking/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>Zone Cafe 弄咖啡｜咖啡簡餐</h3>
+            <p>鳳山咖啡簡餐，午餐與休息可一次解決。</p>
+            <div class="actions"><a class="btn map map-link" data-place="Zone Cafe 弄咖啡 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.popdaily.com.tw/forum/food/1459852">查閱</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/7 下午茶</h3><span>甜品與安靜咖啡</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <span class="tag">保留店家</span>
+            <h3>高雄婆婆冰｜水果冰／番茄切盤</h3>
+            <p>鹽埕經典冰品，安排在回飯店取行李前。</p>
+            <div class="actions"><a class="btn map map-link" data-place="高雄婆婆冰 旗艦店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>KANSYA｜抹茶與日式小點</h3>
+            <p>文化中心周邊，若想安靜喝茶可替代鹽埕冰品。</p>
+            <div class="actions"><a class="btn map map-link" data-place="KANSYA 高雄 文化中心" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://aileelife.com/cultural-center-kaohsiung/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>WASA Café & Sake｜蛋糕咖啡</h3>
+            <p>近左營高鐵，若想提早到左營可改這間。</p>
+            <div class="actions"><a class="btn map map-link" data-place="WASA Café & Sake 高雄 左營" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://bearlovefood.com/blog/post/wasa-cafe-sake">查閱</a></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="meal-block">
+        <div class="meal-title"><h3>6/7 晚餐備案</h3><span>高鐵前外帶／站內用</span></div>
+        <div class="food-grid">
+          <article class="food-card">
+            <h3>八坂丼屋｜海鮮丼</h3>
+            <p>高鐵左營旁彩虹市集，若 16:00 抵達可快速用餐。</p>
+            <div class="actions"><a class="btn map map-link" data-place="八坂丼屋 左營 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://paulyear.com/2016-05-09-1781/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>左營高鐵食堂｜日式家常食堂</h3>
+            <p>想吃簡單熱食，適合高鐵前快速解決。</p>
+            <div class="actions"><a class="btn map map-link" data-place="左營高鐵食堂 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://paulyear.com/shokudo/">查閱</a></div>
+          </article>
+          <article class="food-card">
+            <h3>金木馬文創輕食館｜咖啡輕食</h3>
+            <p>若想安靜等車，這類座位比美食街舒服。</p>
+            <div class="actions"><a class="btn map map-link" data-place="金木馬文創輕食館 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://drifterstudio.tw/woodenhorse/">查閱</a></div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="tips">
-      <div class="section-title"><h2>獨旅提醒</h2></div>
-      <ul class="tips">
-        <li>6 月高雄戶外步行較炎熱，燈塔與旗後砲台安排在上午；隨身攜帶水、防曬與輕便雨具。</li>
-        <li>旗津海鮮若以一人用餐，點餐前先問小份與時價；選赤肉羹路線最容易掌握預算。</li>
-        <li>大港橋、駁二戶外區與光之穹頂可免費散步欣賞；展覽或臨時活動再由「景點備用」支付。</li>
-        <li>店家營業時間、渡輪與展覽資訊可能調整，建議在 6/5 晚間用下方官方資訊與地圖再次確認。</li>
+      <div class="section-head"><h2>獨旅提醒</h2></div>
+      <ul class="checklist">
+        <li>6/6 已改為 15:00 後開始，不再安排上午與中午正式行程。</li>
+        <li>6/7 目標是 16:00 到高鐵左營，17:00 車次前保留取票、買水、上洗手間與月台時間。</li>
+        <li>咖啡廳以環境安靜、有特色、可一人久坐為優先；店家營業時間仍請出發前一天再次確認。</li>
+        <li>駁二、大港橋、衛武營、大東都是捷運或輕軌可達，已完全取消旗津與渡輪。</li>
       </ul>
     </section>
 
     <section class="section" id="sources">
-      <div class="section-title">
-        <h2>查證與連結</h2>
-        <p class="small">整理日期 2026.05.23</p>
+      <div class="section-head">
+        <h2>部落格查閱</h2>
+        <p class="small">更新日期 2026.05.30</p>
       </div>
-      <p class="note">景點與捷運票券優先參考官方網站；餐點價格為預算抓取值，非店家保證售價。</p>
-      <div class="refs">
-        <a class="ref" target="_blank" rel="noopener" href="https://khh.travel/zh-tw/guide/for-dummies/">高雄旅遊網｜自由行與交通攻略 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://khh.travel/zh-tw/attractions/detail/159/">高雄旅遊網｜美麗島光之穹頂 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://www.pier2.org/">駁二藝術特區官方網站 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://khh.travel/zh-tw/attractions/detail/119/">高雄旅遊網｜旗後燈塔 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://khh.travel/zh-tw/shop/gourmet/796/">高雄旅遊網｜鴨肉珍 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://khh.travel/zh-tw/shop/gourmet/1001/">高雄旅遊網｜樺達奶茶 <span>開啟</span></a>
-        <a class="ref" target="_blank" rel="noopener" href="https://www.krtc.com.tw/Ticket/ticket_more?id=c97ac5f85c2a4d70862272ec95a98375">高雄捷運｜一、二日搭乘票 <span>開啟</span></a>
+      <p class="note">以下列出本頁主要參考的實際造訪紀錄；每個景點與店家卡片內也都有各自的查閱按鈕。</p>
+      <div class="source-list">
+        <a target="_blank" rel="noopener" href="https://lexie.tw/nwac/">內惟藝術中心｜Lexie's Blog <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://lexie.tw/national-kaohsiung-center-for-the-arts/">衛武營｜Lexie's Blog <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://travelblog.tw/dadongcenter/">大東文化藝術中心｜小潔趴趴走 <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://kenantravel.tw/great-harbor-bridge/">大港橋｜跟著凱南瘋旅遊 <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">鴨肉珍｜捲捲和土豆拿鐵 <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">老江紅茶牛奶｜PEKO <span>開啟</span></a>
+        <a target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">高雄婆婆冰｜站站吃 <span>開啟</span></a>
       </div>
     </section>
 
-    <footer>高雄獨旅行程卡｜為手機瀏覽設計，可直接轉傳本頁網址</footer>
+    <footer>高雄獨旅行程卡｜手機瀏覽、按鈕導航、可直接分享</footer>
   </main>
 
   <nav class="bottom-nav" aria-label="頁面快速導航">
     <a href="#overview"><span>路</span>動線</a>
     <a href="#schedule"><span>日</span>行程</a>
     <a href="#food"><span>食</span>美食</a>
-    <a href="#budget"><span>元</span>預算</a>
-    <a href="#sources"><span>查</span>連結</a>
+    <a href="#tips"><span>醒</span>提醒</a>
+    <a href="#sources"><span>查</span>紀錄</a>
   </nav>
 
   <script>
-    const budgetCap = 3000;
-    const money = (amount) => "NT$ " + Number(amount).toLocaleString("zh-TW");
-
     document.querySelectorAll(".tab").forEach((tab) => {
       tab.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach((item) => {
@@ -876,42 +783,17 @@
       });
     });
 
-    document.querySelectorAll(".map").forEach((link) => {
+    document.querySelectorAll(".map-link").forEach((link) => {
       const destination = encodeURIComponent(link.dataset.place);
       link.href = "https://www.google.com/maps/search/?api=1&query=" + destination;
       link.target = "_blank";
       link.rel = "noopener";
     });
 
-    function updateBudget() {
-      const selectedMeals = [...document.querySelectorAll('input[type="radio"]:checked')];
-      const food = selectedMeals.reduce((sum, item) => sum + Number(item.value), 0);
-      const extras = [...document.querySelectorAll(".extra")]
-        .reduce((sum, item) => sum + Math.max(0, Number(item.value) || 0), 0);
-      const total = food + extras;
-      const remaining = budgetCap - total;
-      const percent = Math.min(100, (total / budgetCap) * 100);
-      document.getElementById("foodTotal").textContent = money(food);
-      document.getElementById("grandTotal").textContent = money(total);
-      document.getElementById("remaining").textContent = money(remaining);
-      document.getElementById("remaining").style.color = remaining < 0 ? "#ffd2c3" : "#fbd492";
-      document.getElementById("budgetBar").style.width = percent + "%";
-      document.getElementById("budgetBar").style.background = remaining < 0 ? "#ef826a" : "#fbd492";
-      document.getElementById("budgetWarning").style.display = remaining < 0 ? "block" : "none";
-      document.querySelectorAll(".food-choice").forEach((choice) => {
-        choice.classList.toggle("selected", choice.querySelector("input").checked);
-      });
-    }
-
-    document.querySelectorAll('input[type="radio"], .extra').forEach((input) => {
-      input.addEventListener("input", updateBudget);
-      input.addEventListener("change", updateBudget);
-    });
-
     document.getElementById("shareButton").addEventListener("click", async () => {
       const detail = {
         title: document.title,
-        text: "高雄 6/6-6/7 獨旅行程：捷運景點、美食選擇與 NT$3,000 預算表",
+        text: "高雄 6/6-6/7 獨旅行程：萬豪住宿、捷運輕軌、安靜咖啡與可獨食餐廳",
         url: window.location.href
       };
       if (navigator.share) {
@@ -926,13 +808,11 @@
         await navigator.clipboard.writeText(window.location.href);
         const button = document.getElementById("shareButton");
         button.textContent = "連結已複製";
-        setTimeout(() => { button.textContent = "分享此行程"; }, 1800);
+        setTimeout(() => { button.textContent = "分享此行程"; }, 1700);
       } catch (error) {
         window.prompt("複製此頁連結分享：", window.location.href);
       }
     });
-
-    updateBudget();
   </script>
 </body>
 </html>
