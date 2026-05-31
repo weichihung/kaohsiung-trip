@@ -17,19 +17,18 @@
       --sun: #e6773d;
       --tea: #eaf4ef;
       --gold: #f5c879;
+      --rose: #fff0e9;
       --shadow: 0 14px 34px rgba(21, 60, 70, .09);
       --radius: 22px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at top right, rgba(245, 200, 121, .38), transparent 310px),
+        radial-gradient(circle at top right, rgba(245, 200, 121, .36), transparent 320px),
         var(--bg);
       font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
       line-height: 1.6;
@@ -75,8 +74,8 @@
 
     .subtitle {
       margin: 0 0 22px;
-      max-width: 430px;
-      color: rgba(255,255,255,.88);
+      max-width: 440px;
+      color: rgba(255,255,255,.9);
       font-size: 15px;
     }
 
@@ -108,7 +107,7 @@
     .btn.muted { color: var(--muted); background: #f3efe8; }
 
     main {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto;
       padding: 18px 14px 92px;
     }
@@ -122,7 +121,7 @@
       margin-top: -36px;
     }
 
-    .quick-card, .section, .food-card {
+    .quick-card, .section, .item-card {
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
@@ -247,19 +246,19 @@
       font-weight: 800;
     }
 
-    .meal-block {
+    .group {
       margin-top: 18px;
       padding-top: 16px;
       border-top: 1px solid var(--line);
     }
 
-    .meal-block:first-child {
+    .group:first-child {
       margin-top: 0;
       padding-top: 0;
       border-top: 0;
     }
 
-    .meal-title {
+    .group-title {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
@@ -267,19 +266,19 @@
       margin-bottom: 9px;
     }
 
-    .meal-title span { color: var(--muted); font-size: 12px; }
+    .group-title span { color: var(--muted); font-size: 12px; }
 
-    .food-grid {
+    .card-grid {
       display: grid;
       gap: 9px;
     }
 
-    .food-card {
+    .item-card {
       padding: 12px;
       border-radius: 16px;
     }
 
-    .food-card .tag {
+    .item-card .tag {
       display: inline-flex;
       margin-bottom: 6px;
       padding: 3px 8px;
@@ -290,17 +289,13 @@
       font-weight: 900;
     }
 
-    .food-card p {
+    .item-card .tag.rain { color: #24585f; background: var(--tea); }
+    .item-card .tag.keep { color: #8a3b24; background: var(--rose); }
+
+    .item-card p {
       margin: 5px 0 9px;
       color: var(--muted);
       font-size: 13px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10px;
     }
 
     .checklist {
@@ -318,25 +313,6 @@
       font-size: 13px;
     }
 
-    .source-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 12px;
-    }
-
-    .source-list a {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 10px 11px;
-      border: 1px solid #dbe8e4;
-      border-radius: 12px;
-      color: var(--sea);
-      font-size: 13px;
-      font-weight: 800;
-      background: white;
-    }
-
     .bottom-nav {
       position: fixed;
       z-index: 10;
@@ -345,7 +321,7 @@
       bottom: max(10px, env(safe-area-inset-bottom));
       display: flex;
       justify-content: space-around;
-      max-width: 520px;
+      max-width: 540px;
       margin: auto;
       padding: 8px;
       border: 1px solid var(--line);
@@ -380,18 +356,18 @@
 
     @media (min-width: 720px) {
       main { padding: 24px 20px 100px; }
-      .hero { padding-left: max(calc((100% - 720px) / 2), 20px); }
-      .food-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero { padding-left: max(calc((100% - 740px) / 2), 20px); }
+      .card-grid { grid-template-columns: repeat(3, 1fr); }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <p class="eyebrow">KAOHSIUNG SOLO TRIP</p>
-    <h1>高雄安靜系獨旅<br>兩天一夜</h1>
-    <p class="subtitle">2026.06.06（六）15:00 開始｜06.07（日）16:00 抵高鐵左營，17:00 搭高鐵回台北</p>
+    <h1>高雄獨旅<br>咖啡・小吃・港灣夜景</h1>
+    <p class="subtitle">2026.06.06（六）15:00 後開始｜06.07（日）16:00 收束，捷運輕軌可達，行李寄放捷運站置物櫃</p>
     <div class="hero-actions">
-      <a class="btn primary" href="#schedule">看新版行程</a>
+      <a class="btn primary" href="#schedule">看行程</a>
       <button class="btn light" id="shareButton" type="button">分享此行程</button>
     </div>
   </header>
@@ -407,25 +383,25 @@
         <strong>高雄萬豪酒店</strong>
       </div>
       <div class="quick-card">
-        <span>旅行風格</span>
-        <strong>獨旅慢逛</strong>
+        <span>行李</span>
+        <strong>捷運站置物櫃</strong>
       </div>
     </div>
 
     <section class="section" id="overview">
       <div class="section-head">
-        <h2>動線概覽</h2>
-        <p class="small">已取消旗津與渡輪</p>
+        <h2>新版動線</h2>
+        <p class="small">已避開指定地點</p>
       </div>
-      <p class="route-note"><strong>6/6 下午後：</strong>R13 凹子底／萬豪入住 → C21A 內惟藝術中心與高美館周邊 → O2 鹽埕晚餐 → C12 駁二大義與大港橋夜景。</p>
-      <p class="route-note"><strong>6/7 16:00 收束：</strong>R13 凹子底 → O10 衛武營 → O13 大東文化藝術中心 → O2 鹽埕甜品 → R13 萬豪取行李 → R16 高鐵左營。</p>
-      <p class="note">所有「查閱」按鈕皆改放部落格或實際造訪紀錄；「導航」按鈕會直接開啟地圖搜尋。</p>
+      <p class="route-note"><strong>不安排：</strong>旗津、渡輪、美術館、藝術中心、衛武營。保留老江紅茶牛奶、鴨肉珍、高雄婆婆冰、駁二／大港橋。</p>
+      <p class="route-note"><strong>6/6：</strong>萬豪入住 → 中央公園／新崛江逛街 → 咖啡廳久坐 → 鴨肉珍或居酒屋 → 駁二／大港橋夜景。</p>
+      <p class="route-note"><strong>6/7：</strong>老江早餐 → 美麗島或左營置物櫃寄行李 → 三鳳中街／南華商圈 → 室內雨備 → 高雄婆婆冰 → 左營買糕點伴手禮 → 16:00 收束。</p>
     </section>
 
     <section class="section" id="schedule">
       <div class="section-head">
         <h2>兩日行程</h2>
-        <p class="small">手機可直接點按</p>
+        <p class="small">每站可導航</p>
       </div>
 
       <div class="tabs" role="tablist" aria-label="選擇日期">
@@ -436,53 +412,54 @@
       <div class="day" id="day1" role="tabpanel" aria-labelledby="tab-day1">
         <ol class="timeline">
           <li class="stop">
-            <div class="time">15:00 - 15:30</div>
-            <h3>高雄萬豪酒店入住、整理輕便包</h3>
-            <p>以 R13 凹子底為核心，先放行李、補水、防曬，下午後再出門。</p>
-            <span class="pill">住宿點</span><span class="pill">R13 凹子底</span>
+            <div class="time">15:00 - 15:40</div>
+            <h3>高雄萬豪酒店入住、輕裝出門</h3>
+            <p>住宿點近 R13 凹子底，下午先整理行李與補水，之後以捷運紅線進市區。</p>
+            <span class="pill">R13 凹子底</span><span class="pill">住宿點</span>
+            <div class="actions"><a class="btn map map-link" data-place="高雄萬豪酒店" href="#">導航</a></div>
+          </li>
+          <li class="stop">
+            <div class="time">15:55 - 17:20</div>
+            <h3>中央公園、新崛江、玉竹商圈逛街</h3>
+            <p>流行服飾、小店、百貨雨備都集中，適合先逛街暖身；下雨就轉大立百貨。</p>
+            <span class="pill">R9 中央公園</span><span class="pill">服飾逛街</span><span class="pill">雨備</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="高雄萬豪酒店" href="#">導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://suni.tw/khhmarriott-5/">查閱萬豪早餐紀錄</a>
+              <a class="btn map map-link" data-place="新崛江商圈 高雄" href="#">新崛江導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://www.liameyes.tw/blog-369">查閱新崛江</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://myjourney.tw/talee/">查閱大立百貨</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">15:45 - 17:10</div>
-            <h3>內惟藝術中心、高美館綠廊慢走</h3>
-            <p>純白建築、綠廊、藝術中心與咖啡店都集中，適合一個人安靜拍照與休息。</p>
-            <span class="pill">C21A 內惟藝術中心</span><span class="pill">室內外皆可</span>
+            <div class="time">17:25 - 18:35</div>
+            <h3>咖啡廳久坐：Gien Jia 或 NOBUT CAFE</h3>
+            <p>安排可獨坐、環境較好的店，晚餐前休息，避免一路趕行程。</p>
+            <span class="pill">咖啡</span><span class="pill">獨食友善</span><span class="pill">坐久一點</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="內惟藝術中心" href="#">導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://lexie.tw/nwac/">查閱部落格</a>
+              <a class="btn map map-link" data-place="Gien Jia 挑食 高雄" href="#">Gien Jia 導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://www.daisyyohoho.com/gien-jia/">查閱 Gien Jia</a>
+              <a class="btn map map-link" data-place="NOBUT CAFE 高雄 美麗島" href="#">NOBUT 導航</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">17:10 - 18:10</div>
-            <h3>設計感咖啡／蛋糕下午茶</h3>
-            <p>優先選內惟或美術館周邊，避開移動疲勞；想更安靜可選 Space Café。</p>
-            <span class="pill">咖啡</span><span class="pill">蛋糕</span><span class="pill">可獨坐</span>
+            <div class="time">19:00 - 20:15</div>
+            <h3>晚餐：鴨肉珍優先，居酒屋備選</h3>
+            <p>若想小吃就吃鴨肉珍；若想坐久聊天感或一人小酌，改林桑手串或墨岩。</p>
+            <span class="pill">O2 鹽埕埔</span><span class="pill">小吃</span><span class="pill">居酒屋</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="GOR COFFEE 內惟店" href="#">GOR 導航</a>
-              <a class="btn map map-link" data-place="Space Café 高美店" href="#">Space 導航</a>
+              <a class="btn map map-link" data-place="鴨肉珍 高雄" href="#">鴨肉珍導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://rlaidiary.com/duck-jane/">查閱鴨肉珍</a>
+              <a class="btn map map-link" data-place="林桑手串本家 高雄" href="#">林桑導航</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">18:35 - 20:00</div>
-            <h3>鹽埕晚餐：鴨肉珍優先，獨食餐廳備選</h3>
-            <p>搭輕軌或捷運往 O2 鹽埕埔，晚餐後可直接串駁二、大港橋。</p>
-            <span class="pill">O2 鹽埕埔</span><span class="pill">可獨食</span>
+            <div class="time">20:25 - 21:50</div>
+            <h3>駁二／大港橋夜景</h3>
+            <p>只走港邊與輕軌，不搭渡輪；下雨時改棧貳庫 KW2 室內商場。</p>
+            <span class="pill">C12 駁二大義</span><span class="pill">大港橋</span><span class="pill">棧貳庫雨備</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="鴨肉珍 大公路 高雄" href="#">鴨肉珍導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">查閱鴨肉珍紀錄</a>
-            </div>
-          </li>
-          <li class="stop">
-            <div class="time">20:05 - 21:20</div>
-            <h3>駁二大義、大港橋、港灣夜景</h3>
-            <p>取消旗津與渡輪後，把夜景留在港區步行路線；回程可搭輕軌接 R13。</p>
-            <span class="pill">C12 駁二大義</span><span class="pill">夜景</span>
-            <div class="actions">
-              <a class="btn map map-link" data-place="大港橋 高雄" href="#">導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://kenantravel.tw/great-harbor-bridge/">查閱部落格</a>
+              <a class="btn map map-link" data-place="大港橋 高雄" href="#">大港橋導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://rainieis.tw/great-harbor-bridge/">查閱大港橋</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://rainieis.tw/kw2/">查閱棧貳庫</a>
             </div>
           </li>
         </ol>
@@ -491,273 +468,154 @@
       <div class="day" id="day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
         <ol class="timeline">
           <li class="stop">
-            <div class="time">08:00 - 09:00</div>
-            <h3>早餐：萬豪周邊或飯店內用</h3>
-            <p>早上不要排太滿，保留退房前整理時間；若想安靜，可選凹子底巷弄咖啡。</p>
-            <span class="pill">R13 凹子底</span><span class="pill">不趕路</span>
+            <div class="time">08:30 - 09:30</div>
+            <h3>老江紅茶牛奶早餐</h3>
+            <p>保留指定店家。吃完後建議把行李寄放在美麗島站置物櫃，回程再領。</p>
+            <span class="pill">R10/O5 美麗島</span><span class="pill">早餐</span><span class="pill">置物櫃</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="dotz coffee roasters 多點咖啡 高雄" href="#">多點咖啡導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://mymarcy.tw/dotz-coffee-roasters/">查閱咖啡紀錄</a>
+              <a class="btn map map-link" data-place="老江紅茶牛奶 南台總店" href="#">老江導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">查閱老江</a>
+              <a class="btn map map-link" data-place="捷運美麗島站 置物櫃" href="#">置物櫃導航</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">09:20 - 10:50</div>
-            <h3>衛武營國家藝術文化中心</h3>
-            <p>橘線 O10 可達，建築本體、榕樹廣場與都會公園適合慢走；熱時可轉室內。</p>
-            <span class="pill">O10 衛武營</span><span class="pill">安靜藝文</span>
+            <div class="time">09:45 - 11:15</div>
+            <h3>三鳳中街或南華商圈</h3>
+            <p>三鳳中街適合採買點心零食；南華商圈有平價服飾與老商圈散步感。</p>
+            <span class="pill">R11 高雄車站</span><span class="pill">R10/O5 美麗島</span><span class="pill">伴手與服飾</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="衛武營國家藝術文化中心" href="#">導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://lexie.tw/national-kaohsiung-center-for-the-arts/">查閱部落格</a>
+              <a class="btn map map-link" data-place="三鳳中街" href="#">三鳳中街導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://petit-tw.jp/sanfong-central-street/">查閱三鳳中街</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://permio1.com/maslfi/">查閱南華商圈</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">11:05 - 12:00</div>
-            <h3>大東文化藝術中心</h3>
-            <p>O13 大東站旁，熱氣球感棚架與圖書館都好拍，行程簡短但很有特色。</p>
-            <span class="pill">O13 大東</span><span class="pill">捷運直達</span>
+            <div class="time">11:30 - 13:00</div>
+            <h3>室內雨備：科工館或 SKM Park</h3>
+            <p>科工館偏室內展覽；SKM Park 偏 Outlet、服飾、餐廳，捷運草衙站可達。</p>
+            <span class="pill">雨天備案</span><span class="pill">室內</span><span class="pill">逛街</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="大東文化藝術中心" href="#">導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://travelblog.tw/dadongcenter/">查閱部落格</a>
+              <a class="btn map map-link" data-place="國立科學工藝博物館" href="#">科工館導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://www.traveldice.co/2022/11/kaohsiung-national-science-and-technology-museum.html">查閱科工館</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/skm-park">查閱 SKM Park</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">12:10 - 13:15</div>
-            <h3>大東周邊午餐：以一人份套餐為主</h3>
-            <p>選個人餐盒、早午餐或咖啡簡餐，不排合菜，方便控制時間。</p>
-            <span class="pill">可獨食</span><span class="pill">午餐</span>
+            <div class="time">13:10 - 14:00</div>
+            <h3>午餐：鹽埕小吃或商場一人餐</h3>
+            <p>若回鹽埕選港園牛肉麵或米糕城；若在 SKM Park 則選室內餐廳，時間較穩。</p>
+            <span class="pill">小吃</span><span class="pill">可獨食</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="Need Times 你的泰式 鳳山" href="#">Need Times 導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://dpm2bb.com/2026-20/">查閱餐廳紀錄</a>
+              <a class="btn map map-link" data-place="港園牛肉麵 鹽埕總店" href="#">港園導航</a>
+              <a class="btn map map-link" data-place="米糕城 高雄 鹽埕" href="#">米糕城導航</a>
+              <a class="btn map map-link" data-place="SKM Park 高雄 美食" href="#">SKM 美食導航</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">13:50 - 14:35</div>
-            <h3>鹽埕甜品：高雄婆婆冰保留</h3>
-            <p>從大東搭橘線回 O2 鹽埕埔，吃冰後立刻回飯店取行李，時間比較穩。</p>
+            <div class="time">14:15 - 15:00</div>
+            <h3>高雄婆婆冰下午茶</h3>
+            <p>保留指定店家。吃完冰後回美麗島領行李，或直接往左營買糕點伴手禮。</p>
             <span class="pill">O2 鹽埕埔</span><span class="pill">甜品</span>
             <div class="actions">
               <a class="btn map map-link" data-place="高雄婆婆冰 旗艦店" href="#">婆婆冰導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">查閱婆婆冰紀錄</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://nellydyu.tw/blog/post/oldice">查閱婆婆冰</a>
             </div>
           </li>
           <li class="stop">
-            <div class="time">14:40 - 16:00</div>
-            <h3>回萬豪取行李，16:00 抵高鐵左營</h3>
-            <p>建議 15:35 前離開 R13 凹子底，搭紅線到 R16 左營，預留 1 小時給 17:00 高鐵。</p>
-            <span class="pill">R16 左營</span><span class="pill">17:00 高鐵回台北</span>
+            <div class="time">15:00 - 16:00</div>
+            <h3>領行李、左營買糕點，16:00 收束</h3>
+            <p>建議 15:20 前領完行李，搭紅線到 R16 左營；不二緻果或花鳥川可作高鐵前最後採買。</p>
+            <span class="pill">R16 左營</span><span class="pill">糕點伴手禮</span><span class="pill">17:00 高鐵</span>
             <div class="actions">
-              <a class="btn map map-link" data-place="高鐵左營站" href="#">高鐵左營導航</a>
-              <a class="btn blog" target="_blank" rel="noopener" href="https://angelala.tw/rainbow-food-court/">查閱左營站美食</a>
+              <a class="btn map map-link" data-place="高鐵左營站" href="#">左營導航</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://angelala.tw/pure-home-tea-saloon/">查閱不二緻果左營</a>
+              <a class="btn blog" target="_blank" rel="noopener" href="https://dacodie.tw/lemonhanavv/">查閱花鳥川</a>
             </div>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="section" id="food">
+    <section class="section" id="choices">
       <div class="section-head">
-        <h2>美食推薦</h2>
-        <p class="small">每時段 3 選，不重複店家</p>
+        <h2>每時段選擇</h2>
+        <p class="small">3-5 項可自行挑</p>
       </div>
-      <p class="note">6/6 主行程從 15:00 開始；早餐、午餐列為「若早抵高雄」備用，不放入正式時間表。</p>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/6 早餐備用</h3><span>早到才吃</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <span class="tag">保留店家</span>
-            <h3>老江紅茶牛奶｜蛋吐司 + 紅茶牛奶</h3>
-            <p>美麗島站附近，經典高雄早餐與宵夜老店。</p>
-            <div class="actions"><a class="btn map map-link" data-place="老江紅茶牛奶 南台總店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>興隆居｜湯包 + 豆漿</h3>
-            <p>前金一帶老派早餐，適合想吃熱食時備用。</p>
-            <div class="actions"><a class="btn map map-link" data-place="興隆居 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nellydyu.tw/blog/post/35456255">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>果貿來來豆漿｜燒餅蛋 + 豆漿</h3>
-            <p>眷村早餐風味，若想往巨蛋、左營方向移動可選。</p>
-            <div class="actions"><a class="btn map map-link" data-place="果貿來來豆漿 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://hoolee.tw/guomao-soymilk/">查閱</a></div>
-          </article>
+      <div class="group">
+        <div class="group-title"><h3>6/6 下午茶／咖啡久坐</h3><span>咖啡、甜點、可獨坐</span></div>
+        <div class="card-grid">
+          <article class="item-card"><span class="tag">咖啡</span><h3>Gien Jia 挑食</h3><p>近美麗島，老宅餐酒咖啡感，環境比一般小吃店舒適。</p><div class="actions"><a class="btn map map-link" data-place="Gien Jia 挑食 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.daisyyohoho.com/gien-jia/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">獨食</span><h3>NOBUT CAFE</h3><p>美麗島附近，可一人吃咖哩、義大利麵或喝咖啡。</p><div class="actions"><a class="btn map map-link" data-place="NOBUT CAFE 高雄 美麗島" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag rain">雨備</span><h3>大立百貨咖啡</h3><p>中央公園商圈室內備案，可接新崛江逛街。</p><div class="actions"><a class="btn map map-link" data-place="大立百貨 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://myjourney.tw/talee/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">港邊</span><h3>棧貳庫 KW2</h3><p>室內商場、飲品甜點與文創伴手禮，接大港橋很順。</p><div class="actions"><a class="btn map map-link" data-place="棧貳庫 KW2" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://rainieis.tw/kw2/">查閱</a></div></article>
         </div>
       </div>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/6 午餐備用</h3><span>早到才吃</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <h3>港園牛肉麵｜牛肉拌麵</h3>
-            <p>鹽埕老牌麵食，一人點麵很剛好。</p>
-            <div class="actions"><a class="btn map map-link" data-place="港園牛肉麵 鹽埕總店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/gang-yuan-beef-noodle/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>米糕城｜米糕 + 湯品</h3>
-            <p>鹽埕小吃選擇，份量容易掌握。</p>
-            <div class="actions"><a class="btn map map-link" data-place="米糕城 高雄 鹽埕" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/migaocheng">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>海裕屋｜海鮮定食</h3>
-            <p>凹子底一帶日式定食，適合先到萬豪附近用餐。</p>
-            <div class="actions"><a class="btn map map-link" data-place="海裕屋 凹子底 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://ajay.com.tw/%E9%AB%98%E9%9B%84-%E5%87%B9%E5%AD%90%E5%BA%95-%E6%B5%B7%E8%A3%95%E5%B1%8B/">查閱</a></div>
-          </article>
+      <div class="group">
+        <div class="group-title"><h3>6/6 晚餐／居酒屋</h3><span>小吃或一人小酌</span></div>
+        <div class="card-grid">
+          <article class="item-card"><span class="tag keep">保留</span><h3>鴨肉珍</h3><p>鹽埕指定保留小吃，適合鴨肉飯、湯品簡單吃。</p><div class="actions"><a class="btn map map-link" data-place="鴨肉珍 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://rlaidiary.com/duck-jane/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">居酒屋</span><h3>墨岩居酒屋</h3><p>駁二附近，適合晚餐後接大港橋夜景。</p><div class="actions"><a class="btn map map-link" data-place="墨岩居酒屋 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://hoolee.tw/moyan-izakaya/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">串燒</span><h3>林桑手串本家</h3><p>近美麗島，串燒居酒屋，一人點串燒也容易。</p><div class="actions"><a class="btn map map-link" data-place="林桑手串本家 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nurseilife.cc/linsan/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">餐酒</span><h3>Gien Jia 挑食</h3><p>若想要環境好一點，可把咖啡時段改成晚餐餐酒。</p><div class="actions"><a class="btn map map-link" data-place="Gien Jia 挑食 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.daisyyohoho.com/gien-jia/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">日式</span><h3>居酒屋頑固老頭</h3><p>新崛江商圈，日式深夜食堂感。</p><div class="actions"><a class="btn map map-link" data-place="居酒屋頑固老頭 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://miemie.tw/stubborn-old-man-izakaya/">查閱</a></div></article>
         </div>
       </div>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/6 下午茶</h3><span>安靜、蛋糕、咖啡</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <h3>GOR' COFFEE 內惟店｜法式甜點 + 咖啡</h3>
-            <p>內惟藝術中心裡，動線最順、環境有設計感。</p>
-            <div class="actions"><a class="btn map map-link" data-place="GOR COFFEE 內惟店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/gor-nei-wei/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>Akau Coffee 猻物咖啡｜咖啡 + 輕食</h3>
-            <p>內惟藝術中心內，逛展後可直接坐下。</p>
-            <div class="actions"><a class="btn map map-link" data-place="Akau Coffee 猻物咖啡 內惟藝術中心" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/neiwei-akau">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>Space Café 高美店｜北歐家具咖啡廳</h3>
-            <p>高美館附近，空間安靜、有特色，適合獨處。</p>
-            <div class="actions"><a class="btn map map-link" data-place="Space Café 高美店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://jocelynspace.com/%E9%AB%98%E9%9B%84%E5%92%96%E5%95%A1%E5%BB%B3space-cafe-scandinavian-style/">查閱</a></div>
-          </article>
+      <div class="group">
+        <div class="group-title"><h3>6/7 早餐</h3><span>保留老江</span></div>
+        <div class="card-grid">
+          <article class="item-card"><span class="tag keep">保留</span><h3>老江紅茶牛奶</h3><p>紅茶牛奶、吐司、蛋餅，近美麗島，吃完可寄行李。</p><div class="actions"><a class="btn map map-link" data-place="老江紅茶牛奶 南台總店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">住宿</span><h3>高雄萬豪早餐</h3><p>若想省時間，直接在飯店吃完再退房。</p><div class="actions"><a class="btn map map-link" data-place="高雄萬豪酒店 早餐" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag">小吃</span><h3>興隆居</h3><p>高雄經典湯包早餐，前金一帶。</p><div class="actions"><a class="btn map map-link" data-place="興隆居 高雄" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag">熱湯</span><h3>大溝頂虱目魚米粉湯</h3><p>若早上就想往鹽埕，可選熱湯早餐。</p><div class="actions"><a class="btn map map-link" data-place="大溝頂虱目魚米粉湯 高雄" href="#">導航</a></div></article>
         </div>
       </div>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/6 晚餐</h3><span>鹽埕與獨食優先</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <span class="tag">保留店家</span>
-            <h3>鴨肉珍｜鴨肉飯 + 下水湯</h3>
-            <p>鹽埕代表性小吃，晚餐後可接駁二夜景。</p>
-            <div class="actions"><a class="btn map map-link" data-place="鴨肉珍 大公路 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>獨食燒肉｜一人燒肉套餐</h3>
-            <p>名稱就很符合獨旅，鹽埕區一人用餐不尷尬。</p>
-            <div class="actions"><a class="btn map map-link" data-place="獨食燒肉 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.girlslifeplan.com/oneeat/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>NOBUT CAFE｜咖哩飯／義大利麵</h3>
-            <p>美麗島站附近，部落格紀錄提到適合一個人慢慢吃。</p>
-            <div class="actions"><a class="btn map map-link" data-place="NOBUT CAFE 高雄 美麗島" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://yama.tw/nobut-cafe/">查閱</a></div>
-          </article>
+      <div class="group">
+        <div class="group-title"><h3>6/7 午餐</h3><span>小吃／可獨食</span></div>
+        <div class="card-grid">
+          <article class="item-card"><span class="tag">麵食</span><h3>港園牛肉麵</h3><p>鹽埕老牌牛肉麵，一人用餐方便。</p><div class="actions"><a class="btn map map-link" data-place="港園牛肉麵 鹽埕總店" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag">米食</span><h3>米糕城</h3><p>米糕、湯品，份量彈性好掌握。</p><div class="actions"><a class="btn map map-link" data-place="米糕城 高雄 鹽埕" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag rain">雨備</span><h3>SKM Park 室內餐廳</h3><p>逛街、吃飯、躲雨一次解決。</p><div class="actions"><a class="btn map map-link" data-place="SKM Park 高雄 美食" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/skm-park">查閱</a></div></article>
+          <article class="item-card"><span class="tag rain">室內</span><h3>三多商圈大遠百</h3><p>誠品生活、餐廳、百貨室內備案。</p><div class="actions"><a class="btn map map-link" data-place="高雄大遠百 誠品生活" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://meet.eslite.com/hk/tc/store/20180220012">查閱</a></div></article>
         </div>
       </div>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/7 早餐</h3><span>萬豪／凹子底周邊</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <h3>高雄萬豪 M9｜飯店早餐</h3>
-            <p>住客最省時間，適合 6/7 早上保留體力。</p>
-            <div class="actions"><a class="btn map map-link" data-place="高雄萬豪酒店 M9" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://suni.tw/khhmarriott-5/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>dotz coffee roasters｜早午餐 + 精品咖啡</h3>
-            <p>凹子底巷內，環境舒適，適合獨自用餐。</p>
-            <div class="actions"><a class="btn map map-link" data-place="dotz coffee roasters 多點咖啡 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mymarcy.tw/dotz-coffee-roasters/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>大溝頂虱目魚米粉湯｜熱湯早餐</h3>
-            <p>若想往鹽埕出發，可吃一碗在地熱湯。</p>
-            <div class="actions"><a class="btn map map-link" data-place="大溝頂虱目魚米粉湯 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://mable.tw/blog/post/milkfish-noodle">查閱</a></div>
-          </article>
+      <div class="group">
+        <div class="group-title"><h3>6/7 下午茶</h3><span>甜品與咖啡</span></div>
+        <div class="card-grid">
+          <article class="item-card"><span class="tag keep">保留</span><h3>高雄婆婆冰</h3><p>水果冰、番茄切盤，鹽埕指定保留甜品。</p><div class="actions"><a class="btn map map-link" data-place="高雄婆婆冰 旗艦店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://nellydyu.tw/blog/post/oldice">查閱</a></div></article>
+          <article class="item-card"><span class="tag">奶茶</span><h3>樺達奶茶</h3><p>鹽埕老字號飲品，可與婆婆冰擇一。</p><div class="actions"><a class="btn map map-link" data-place="樺達奶茶 鹽埕總店" href="#">導航</a></div></article>
+          <article class="item-card"><span class="tag rain">室內</span><h3>棧貳庫 KW2</h3><p>港邊室內甜點飲品，雨天好用。</p><div class="actions"><a class="btn map map-link" data-place="棧貳庫 KW2" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://rainieis.tw/kw2/">查閱</a></div></article>
+          <article class="item-card"><span class="tag">回程</span><h3>左營彩虹市集咖啡</h3><p>提早到高鐵站時，可坐著等車。</p><div class="actions"><a class="btn map map-link" data-place="左營高鐵 彩虹市集 咖啡" href="#">導航</a></div></article>
         </div>
       </div>
+    </section>
 
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/7 午餐</h3><span>大東／鳳山周邊</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <h3>Need Times 你的泰式｜個人泰式餐盒</h3>
-            <p>大東藝術中心旁，個人套餐很好安排。</p>
-            <div class="actions"><a class="btn map map-link" data-place="Need Times 你的泰式 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://dpm2bb.com/2026-20/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>加減晨廚｜早午餐盤</h3>
-            <p>近大東文化藝術中心，想吃輕食可選。</p>
-            <div class="actions"><a class="btn map map-link" data-place="加減晨廚 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://miemie.tw/52cooking/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>Zone Cafe 弄咖啡｜咖啡簡餐</h3>
-            <p>鳳山咖啡簡餐，午餐與休息可一次解決。</p>
-            <div class="actions"><a class="btn map map-link" data-place="Zone Cafe 弄咖啡 鳳山" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://www.popdaily.com.tw/forum/food/1459852">查閱</a></div>
-          </article>
-        </div>
+    <section class="section" id="souvenir">
+      <div class="section-head">
+        <h2>糕點伴手禮</h2>
+        <p class="small">蛋糕與甜點為主</p>
       </div>
-
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/7 下午茶</h3><span>甜品與安靜咖啡</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <span class="tag">保留店家</span>
-            <h3>高雄婆婆冰｜水果冰／番茄切盤</h3>
-            <p>鹽埕經典冰品，安排在回飯店取行李前。</p>
-            <div class="actions"><a class="btn map map-link" data-place="高雄婆婆冰 旗艦店" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>KANSYA｜抹茶與日式小點</h3>
-            <p>文化中心周邊，若想安靜喝茶可替代鹽埕冰品。</p>
-            <div class="actions"><a class="btn map map-link" data-place="KANSYA 高雄 文化中心" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://aileelife.com/cultural-center-kaohsiung/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>WASA Café & Sake｜蛋糕咖啡</h3>
-            <p>近左營高鐵，若想提早到左營可改這間。</p>
-            <div class="actions"><a class="btn map map-link" data-place="WASA Café & Sake 高雄 左營" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://bearlovefood.com/blog/post/wasa-cafe-sake">查閱</a></div>
-          </article>
-        </div>
-      </div>
-
-      <div class="meal-block">
-        <div class="meal-title"><h3>6/7 晚餐備案</h3><span>高鐵前外帶／站內用</span></div>
-        <div class="food-grid">
-          <article class="food-card">
-            <h3>八坂丼屋｜海鮮丼</h3>
-            <p>高鐵左營旁彩虹市集，若 16:00 抵達可快速用餐。</p>
-            <div class="actions"><a class="btn map map-link" data-place="八坂丼屋 左營 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://paulyear.com/2016-05-09-1781/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>左營高鐵食堂｜日式家常食堂</h3>
-            <p>想吃簡單熱食，適合高鐵前快速解決。</p>
-            <div class="actions"><a class="btn map map-link" data-place="左營高鐵食堂 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://paulyear.com/shokudo/">查閱</a></div>
-          </article>
-          <article class="food-card">
-            <h3>金木馬文創輕食館｜咖啡輕食</h3>
-            <p>若想安靜等車，這類座位比美食街舒服。</p>
-            <div class="actions"><a class="btn map map-link" data-place="金木馬文創輕食館 彩虹市集" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://drifterstudio.tw/woodenhorse/">查閱</a></div>
-          </article>
-        </div>
+      <div class="card-grid">
+        <article class="item-card"><span class="tag">高鐵最順</span><h3>不二緻果／PURE HOME TEA SALOON</h3><p>左營高鐵可買真芋頭蛋糕、甜點禮盒，也能坐下吃下午茶。</p><div class="actions"><a class="btn map map-link" data-place="PURE HOME TEA SALOON 左營高鐵" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://angelala.tw/pure-home-tea-saloon/">查閱</a></div></article>
+        <article class="item-card"><span class="tag">老字號</span><h3>不二緻果中正本舖</h3><p>美麗島附近，芋頭蛋糕、牛奶蛋糕、甜點禮盒好帶。</p><div class="actions"><a class="btn map map-link" data-place="不二緻果 中正本舖 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://hoolee.tw/purehome-dessert/">查閱</a></div></article>
+        <article class="item-card"><span class="tag">蛋糕</span><h3>花鳥川水果千層</h3><p>左營高鐵可買水果千層，適合最後再購入冷藏甜點。</p><div class="actions"><a class="btn map map-link" data-place="花鳥川水果千層 左營高鐵" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://dacodie.tw/lemonhanavv/">查閱</a></div></article>
+        <article class="item-card"><span class="tag">乳酪</span><h3>家榮乳酪蛋糕</h3><p>老字號乳酪蛋糕；若選科工館雨備，可順路採買。</p><div class="actions"><a class="btn map map-link" data-place="家榮乳酪蛋糕 高雄" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://inmap.tw/archives/71342">查閱</a></div></article>
+        <article class="item-card"><span class="tag">輕巧</span><h3>似錦堂左營新光門市</h3><p>蛋捲類較好帶，放在行李中比較不怕晃。</p><div class="actions"><a class="btn map map-link" data-place="似錦堂 左營新光門市" href="#">導航</a><a class="btn blog" target="_blank" rel="noopener" href="https://sushigraffiti.com/2022-10-04-1144/">查閱</a></div></article>
       </div>
     </section>
 
     <section class="section" id="tips">
-      <div class="section-head"><h2>獨旅提醒</h2></div>
+      <div class="section-head"><h2>行李與雨備</h2></div>
       <ul class="checklist">
-        <li>6/6 已改為 15:00 後開始，不再安排上午與中午正式行程。</li>
-        <li>6/7 目標是 16:00 到高鐵左營，17:00 車次前保留取票、買水、上洗手間與月台時間。</li>
-        <li>咖啡廳以環境安靜、有特色、可一人久坐為優先；店家營業時間仍請出發前一天再次確認。</li>
-        <li>駁二、大港橋、衛武營、大東都是捷運或輕軌可達，已完全取消旗津與渡輪。</li>
+        <li>推薦寄放：`R10/O5 美麗島站` 置物櫃，因紅線／橘線交會，老江、鹽埕、左營都好接。</li>
+        <li>最穩寄放：`R16 左營站／高鐵左營站` 置物櫃，早上多拉一段，但回程最安心。</li>
+        <li>雨天方案：新崛江改大立百貨，駁二改棧貳庫 KW2，6/7 改科工館或 SKM Park。</li>
+        <li>糕點伴手禮若需冷藏，建議最後在左營高鐵購買，減少提著走的時間。</li>
       </ul>
-    </section>
-
-    <section class="section" id="sources">
-      <div class="section-head">
-        <h2>部落格查閱</h2>
-        <p class="small">更新日期 2026.05.30</p>
-      </div>
-      <p class="note">以下列出本頁主要參考的實際造訪紀錄；每個景點與店家卡片內也都有各自的查閱按鈕。</p>
-      <div class="source-list">
-        <a target="_blank" rel="noopener" href="https://lexie.tw/nwac/">內惟藝術中心｜Lexie's Blog <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://lexie.tw/national-kaohsiung-center-for-the-arts/">衛武營｜Lexie's Blog <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://travelblog.tw/dadongcenter/">大東文化藝術中心｜小潔趴趴走 <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://kenantravel.tw/great-harbor-bridge/">大港橋｜跟著凱南瘋旅遊 <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://nigi33.tw/duck-zhen/">鴨肉珍｜捲捲和土豆拿鐵 <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://pekoblog.tw/laochiang/">老江紅茶牛奶｜PEKO <span>開啟</span></a>
-        <a target="_blank" rel="noopener" href="https://zanzan.tw/archives/60105">高雄婆婆冰｜站站吃 <span>開啟</span></a>
-      </div>
     </section>
 
     <footer>高雄獨旅行程卡｜手機瀏覽、按鈕導航、可直接分享</footer>
@@ -766,9 +624,9 @@
   <nav class="bottom-nav" aria-label="頁面快速導航">
     <a href="#overview"><span>路</span>動線</a>
     <a href="#schedule"><span>日</span>行程</a>
-    <a href="#food"><span>食</span>美食</a>
-    <a href="#tips"><span>醒</span>提醒</a>
-    <a href="#sources"><span>查</span>紀錄</a>
+    <a href="#choices"><span>選</span>餐景</a>
+    <a href="#souvenir"><span>糕</span>伴手</a>
+    <a href="#tips"><span>雨</span>備案</a>
   </nav>
 
   <script>
@@ -793,7 +651,7 @@
     document.getElementById("shareButton").addEventListener("click", async () => {
       const detail = {
         title: document.title,
-        text: "高雄 6/6-6/7 獨旅行程：萬豪住宿、捷運輕軌、安靜咖啡與可獨食餐廳",
+        text: "高雄 6/6-6/7 獨旅行程：捷運輕軌、萬豪住宿、咖啡居酒屋、糕點伴手禮與雨備",
         url: window.location.href
       };
       if (navigator.share) {
